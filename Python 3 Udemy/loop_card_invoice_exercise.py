@@ -32,11 +32,18 @@ while answer == 'y':
         try:
             # try convert to float
             product_price = float(product_price)
-            valid_price = True
+
+            # Preço negativo
+            if product_price <= 0:
+                print('Price have to be greater than zero')
+            else:
+                valid_price = True
+
         except:
             print("invalid format for price. Use '.' instead of ',' to cents ")
 
     # Adiciona ao dictionary
+    valid_price = False
     invoice_items_dictionary.update({product_name: product_price})
     # invoice_items.append([product_name, product_price])
     
