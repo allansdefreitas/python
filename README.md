@@ -1,2 +1,2 @@
-# python-and-opencv
-Python and OpenCV codes
+# python
+Python codes samples, OpenCV codes...
