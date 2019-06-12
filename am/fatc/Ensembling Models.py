@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import numpy as np
 from sklearn.naive_bayes import GaussianNB
 
 #TREINAR GAUSS1,GAUSS2 e GAUSS3 COM View1, View2 E View3
@@ -38,6 +37,20 @@ def gaussCombinadoSoma(exemploIndex):
     #índice do máximo é a classe escolhida (0 - 9)
     classeEscolhida = np.argmax(arrayPosterioriClasses)
     return classeEscolhida
+
+def scoreGaussCombinadoSoma(X_test, y_label):
+    #X_test são os dados e y_label é a rotulação/classificação correta dos dados, RESPECTIVAMENTE.
+    
+    # quantidade de objetos para teste
+    qtdExemplosX_test = X_test.shape[0]
+    acertos = 0
+    
+    for i in range(qtdExemplosX_test):
+        
+        if( gaussCombinadoSoma(i) == y_label[i] ):
+            acertos += 1
+    
+    return acertos / qtdExemplosX_test
 
 
 """Pegando os dados de treinamento de fac - CRISP ------------------------------------------------------------"""
@@ -94,18 +107,23 @@ print("score do gauss3: ", GaussClf3.score(X_view3_kar, y_view3_kar))
 
 """ Vendo os resultados do classificador combinado ---------------------------------------- """
 
+print("Gauss Combinado: ", scoreGaussCombinadoSoma(X_view1_fac, y_view1_fac))
+
+
 #print([X_view1_fac[0] ])
 
-for i in range(2000):
-    #print( "Gauss 1:", GaussClf1.predict( [X_view1_fac[i] ]) )
-    #print( "Gauss 2:", GaussClf2.predict( [X_view2_fou[i] ]) )
-    #print("Gauss 3:", GaussClf3.predict( [X_view3_kar[i] ]) )
-    
-    if(GaussClf1.predict( [X_view1_fac[i] ]) != gaussCombinadoSoma(i)):
-        print("Gauss combinado:", gaussCombinadoSoma(i))
-        print( "Gauss 1:", GaussClf1.predict( [X_view1_fac[i] ]) )
+#for i in range(2000):
     
 
+print( "Gauss 1:", GaussClf1.predict( [X_view1_fac[0] ]) )
+print( "Gauss 2:", GaussClf2.predict( [X_view2_fou[0] ]) )
+print("Gauss 3:", GaussClf3.predict( [X_view3_kar[0] ]) )
+print("Gauss combinado:", gaussCombinadoSoma(0))
+    
+    #if( gaussCombinadoSoma(i) != y_view1_fac[i]):
+
+     #  print( "Gauss 1:", GaussClf1.predict( [X_view1_fac[i] ]) )
+    
 
 
 
