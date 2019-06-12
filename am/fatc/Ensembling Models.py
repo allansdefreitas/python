@@ -32,7 +32,8 @@ def gaussCombinadoSoma(exemploIndex):
     #para cada classe: SÓ TEM 9 CLASSES, PROBLEMA DO CRISP
     for i in range(9): # tem que ser 10
         priori = GaussClf1.class_prior_[i]
-        arrayPosterioriClasses[i] =  priori + ( GaussClf1.predict_proba(X_view1_fac)[exemploIndex, i] ) + ( GaussClf2.predict_proba(X_view2_fou)[exemploIndex, i] ) + ( GaussClf3.predict_proba(X_view3_kar)[exemploIndex, i] )
+                                  #1-L....
+        arrayPosterioriClasses[i] = -2 * (priori + ( GaussClf1.predict_proba(X_view1_fac)[exemploIndex, i] ) + ( GaussClf2.predict_proba(X_view2_fou)[exemploIndex, i] ) + ( GaussClf3.predict_proba(X_view3_kar)[exemploIndex, i] ) )
         #print(i)
     #índice do máximo é a classe escolhida (0 - 9)
     classeEscolhida = np.argmax(arrayPosterioriClasses)
@@ -107,7 +108,7 @@ print("score do gauss3: ", GaussClf3.score(X_view3_kar, y_view3_kar))
 
 """ Vendo os resultados do classificador combinado ---------------------------------------- """
 
-print("Gauss Combinado: ", scoreGaussCombinadoSoma(X_view1_fac, y_view1_fac))
+#print("Gauss Combinado: ", scoreGaussCombinadoSoma(X_view1_fac, y_view1_fac))
 
 
 #print([X_view1_fac[0] ])
@@ -115,9 +116,10 @@ print("Gauss Combinado: ", scoreGaussCombinadoSoma(X_view1_fac, y_view1_fac))
 #for i in range(2000):
     
 
-print( "Gauss 1:", GaussClf1.predict( [X_view1_fac[0] ]) )
+
+"""print( "Gauss 1:", GaussClf1.predict( [X_view1_fac[0] ]) )
 print( "Gauss 2:", GaussClf2.predict( [X_view2_fou[0] ]) )
-print("Gauss 3:", GaussClf3.predict( [X_view3_kar[0] ]) )
+print("Gauss 3:", GaussClf3.predict( [X_view3_kar[0] ]) ) """
 print("Gauss combinado:", gaussCombinadoSoma(0))
     
     #if( gaussCombinadoSoma(i) != y_view1_fac[i]):
