@@ -25,6 +25,7 @@ def gaussCombinadoSoma(exemploIndex):
         #clf.predict_proba(X)[0,0] exemplo 0 classe 0 
 
 #aplicar regra, se não tiver método que o faça
+        
 
     # para armazenar a priori + posterioris de cada classe
     arrayPosterioriClasses = np.zeros(10)
@@ -46,8 +47,10 @@ def scoreGaussCombinadoSoma(X_test, y_label):
     qtdExemplosX_test = X_test.shape[0]
     acertos = 0
     
-    for i in range(qtdExemplosX_test):
+    for i in range(5):
         
+        print("gauss comb: ", gaussCombinadoSoma(i))
+        print("y_label: ", y_label[i])
         if( gaussCombinadoSoma(i) == y_label[i] ):
             acertos += 1
     
@@ -69,7 +72,6 @@ GaussClf1 = GaussianNB()
 
 #dados de treino x com os true labels de y para TREINAR
 GaussClf1.fit(X_view1_fac, y_view1_fac)
-
 print("score do gauss1: ", GaussClf1.score(X_view1_fac, y_view1_fac))
 
 
@@ -108,31 +110,24 @@ print("score do gauss3: ", GaussClf3.score(X_view3_kar, y_view3_kar))
 
 """ Vendo os resultados do classificador combinado ---------------------------------------- """
 
-#print("Gauss Combinado: ", scoreGaussCombinadoSoma(X_view1_fac, y_view1_fac))
 
 
 #print([X_view1_fac[0] ])
 
 #for i in range(2000):
     
-
-
 """print( "Gauss 1:", GaussClf1.predict( [X_view1_fac[0] ]) )
 print( "Gauss 2:", GaussClf2.predict( [X_view2_fou[0] ]) )
 print("Gauss 3:", GaussClf3.predict( [X_view3_kar[0] ]) ) """
-print("Gauss combinado:", gaussCombinadoSoma(0))
-    
+
+print("Gauss combinado:", gaussCombinadoSoma(400))
+
+#print("Gauss Combinado: ", scoreGaussCombinadoSoma(X_view1_fac, y_view1_fac))
+
     #if( gaussCombinadoSoma(i) != y_view1_fac[i]):
 
      #  print( "Gauss 1:", GaussClf1.predict( [X_view1_fac[i] ]) )
     
-
-
-
-
-
-
-
 """ TRASH CODE
 for j = 0...10 classes
 k = 0
