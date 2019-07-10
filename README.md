@@ -1,2 +1,2 @@
-# python
+# python and ML
 Python codes samples, OpenCV codes...
