@@ -1,12 +1,5 @@
-# python and ML
+# Python, ML, TensorFlow, OpenCV...
 Python codes samples, OpenCV codes...
 
 
-### Markdown
-
-It is a......
-```markdown
-lorem ipsum dolor
-
-# Header 1
-## Header 2
+#
