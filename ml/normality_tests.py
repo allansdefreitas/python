@@ -23,6 +23,8 @@ petal_width = X[:,3]
 
 
 isGaussian(sepal_width)
+isGaussian(petal_lenght)
+isGaussian(petal_width)
 
 
 #Is it sepal lenghts drawn from a gaussian distribution?
