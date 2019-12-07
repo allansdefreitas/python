@@ -1,11 +1,8 @@
 #from: https://machinelearningmastery.com/statistics-for-machine-learning-mini-course/?unapproved=514046&moderation-hash=5fc38cc2acef95443b0212df74625b5c#comment-514046
-mport numpy as np
 from sklearn import datasets
 iris = datasets.load_iris()
 
 # calculate correlation coefficient
-from numpy.random import seed
-from numpy.random import randn
 from scipy.stats import pearsonr
 
 #Attributes
